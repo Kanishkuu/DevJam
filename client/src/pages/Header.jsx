@@ -1,8 +1,10 @@
 import React from 'react'
+import React, {useState,useContext} from 'react'
 import { Link } from 'react-router-dom'
+import {UserContext} from "../UserContext.jsx";
 
-export default function 
-() {
+export default function Header() {
+    const {user} = useContext(UserContext);
   return (
     
         <header className=' flex justify-between'>
@@ -36,6 +38,11 @@ export default function
            </svg>
 
          </div>
+          {!!user &&(
+              <div>
+                  {user.name}
+              </div>
+          )}
       </Link>
     </header>
 
